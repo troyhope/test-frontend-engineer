@@ -153,3 +153,20 @@ _These are not required but can showcase your additional skills:_
 - **E-commerce Features**
   - Add user authentication.
   - Implement a checkout process.
+
+---
+
+## Implementation Details
+
+### Tech Stack
+
+- Next.js 13+ with App Router
+- Typescript for type safety
+- React Context for client-side data management
+- Tailwind CSS for styling
+
+### Architecture Choices
+
+- Used feature-based approach for simplicity and time constraints
+- Could be expanded to Feature-Sliced Design or Atomic Design for larger applications
+- Current structure maintains good separation of concerns while staying pragmatic
