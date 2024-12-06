@@ -1,5 +1,11 @@
 import { CartState, CartAction, CartItem, CartTotals } from "../types";
 
+/**
+ * Calculates cart totals from items array
+ * @param items Array of cart items
+ * @returns Cart totals with quantity and amount
+ */
+
 function calculateTotals(items: CartItem[]): CartTotals {
   return items.reduce(
     (acc, item) => ({
@@ -10,13 +16,22 @@ function calculateTotals(items: CartItem[]): CartTotals {
   );
 }
 
+/**
+ * Manages cart state updates through actions
+ * @param state Current cart state
+ * @param action Cart action to perform
+ * @returns Updated cart state
+ */
+
 export function cartReducer(state: CartState, action: CartAction): CartState {
   switch (action.type) {
     case "ADD_ITEM": {
+      // Check if item already exists in cart
       const existingItem = state.items.find(
         (item) => item.product.id === action.payload.id
       );
 
+      // If exists, increment quantity, otherwise add new item
       const newItems = existingItem
         ? state.items.map((item) =>
             item.product.id === action.payload.id

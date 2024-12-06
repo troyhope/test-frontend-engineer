@@ -2,6 +2,12 @@
 import { useMemo } from "react";
 import { useCart } from "./useCart";
 
+/**
+ * Custom hook for calculating cart totals
+ * Memoizes calculations to prevent unnecessary rerenders
+ * @returns Object containing total quantity and amount
+ */
+
 export function useCartTotals() {
   const { items } = useCart();
 
