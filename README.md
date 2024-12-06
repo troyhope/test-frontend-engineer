@@ -1,5 +1,85 @@
 # Frontend Developer Take-Home Test
 
+## Implementation Details
+
+### Tech Stack
+
+- Next.js 13+ with App Router
+- Typescript for type safety
+- React Context for client-side data management
+- Tailwind CSS for styling
+- Local Storage for cart persistence
+
+### Architectural Decisions
+
+- Feature-based architecture for better code organization
+- Server Components for initial data fetching
+- Client Components for interactive features
+- Context API over Redux due to app scope
+- Separation of cart logic from product display
+
+### Trade-offs & Assumptions
+
+- Used localStorage over backend persistence for simplicity
+- Chose client-side cart state over server state
+- Simplified product data model from FakeStore API
+- No authentication/checkout implementation
+- Basic error handling for MVP scope
+
+### Key Features
+
+- Product listing with pagination
+- Product detail views with add to cart
+- Cart management with:
+  - Quantity controls
+  - Remove items
+  - Total calculation
+- Responsive design for mobile/desktop
+- Loading states and error handling:
+  - Skeleton loading UI
+  - Error boundaries
+  - Empty states
+- Visual feedback for cart interactions:
+  - Cart button animations
+  - Quantity updates
+  - Add/remove feedback
+
+### Future Improvements
+
+- Server-side cart persistence
+- User authentication:
+  - Login/signup
+  - Protected routes
+- Checkout process:
+  - Address collection
+  - Payment integration
+- Product features:
+  - Filtering
+  - Search
+  - Categories
+- Enhanced error handling:
+  - Toast notifications
+  - Recovery options
+  - Offline support
+
+### Setup & Running Locally
+
+```bash
+# Install dependencies
+npm install
+
+# Run development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Start production server
+npm start
+```
+
+---
+
 ## Overview
 
 Develop a responsive e-commerce web application that allows users to browse products, view product details, and add products to a shopping cart.
@@ -153,20 +233,3 @@ _These are not required but can showcase your additional skills:_
 - **E-commerce Features**
   - Add user authentication.
   - Implement a checkout process.
-
----
-
-## Implementation Details
-
-### Tech Stack
-
-- Next.js 13+ with App Router
-- Typescript for type safety
-- React Context for client-side data management
-- Tailwind CSS for styling
-
-### Architecture Choices
-
-- Used feature-based approach for simplicity and time constraints
-- Could be expanded to Feature-Sliced Design or Atomic Design for larger applications
-- Current structure maintains good separation of concerns while staying pragmatic

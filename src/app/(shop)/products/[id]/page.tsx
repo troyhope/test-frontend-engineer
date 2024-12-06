@@ -2,7 +2,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 
 import { getProduct } from "@/lib/api/products";
-import { Button } from "@/components/ui/Button";
+import { AddToCartButton } from "@/app/features/products/components/AddToCartButton";
 
 export default async function ProductDetailPage({
   params,
@@ -35,7 +35,7 @@ export default async function ProductDetailPage({
             <h1 className="text-3xl font-bold">{product.title}</h1>
             <p className="text-xl font-bold">${product.price}</p>
             <p className="text-gray-600">{product.description}</p>
-            <Button className="w-full md:w-auto">Add to Cart</Button>
+            <AddToCartButton product={product} />
           </div>
         </div>
       </div>
