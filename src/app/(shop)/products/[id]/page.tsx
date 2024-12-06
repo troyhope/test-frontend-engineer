@@ -5,15 +5,13 @@ import { getProduct } from "@/lib/api/products";
 import { AddToCartButton } from "@/app/features/products/components/AddToCartButton";
 import { Container } from "@/components/ui/Container";
 
-export default async function ProductDetailPage({
-  params,
-}: {
-  params: { id: string };
-}) {
-  // Await params before accessing properties or nextjs will throw an error
-  const { id } = await params;
+type AsyncParams = Promise<{ id: string }>;
 
+export default async function ProductDetailPage(props: {
+  params: AsyncParams;
+}) {
   try {
+    const { id } = await props.params;
     const product = await getProduct(id);
 
     if (!product) {
