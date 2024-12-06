@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 
 import { getProduct } from "@/lib/api/products";
 import { AddToCartButton } from "@/app/features/products/components/AddToCartButton";
+import { Container } from "@/components/ui/Container";
 
 export default async function ProductDetailPage({
   params,
@@ -20,7 +21,7 @@ export default async function ProductDetailPage({
     }
 
     return (
-      <div className="container mx-auto px-4 py-8">
+      <Container>
         <div className="grid md:grid-cols-2 gap-8">
           <div className="relative aspect-square">
             <Image
@@ -38,7 +39,7 @@ export default async function ProductDetailPage({
             <AddToCartButton product={product} />
           </div>
         </div>
-      </div>
+      </Container>
     );
   } catch {
     notFound();

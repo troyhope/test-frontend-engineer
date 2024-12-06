@@ -5,6 +5,7 @@ import { CartItem } from "@/app/features/cart/components/CartItem";
 import { OrderSummary } from "@/app/features/cart/components/OrderSummary";
 import { EmptyCartMessage } from "@/app/features/cart/components/EmptyCartMessage";
 import CartLoading from "./loading";
+import { Container } from "@/components/ui/Container";
 
 export default function CartPage() {
   const { items, removeItem, updateQuantity, isLoading } = useCart();
@@ -14,7 +15,7 @@ export default function CartPage() {
   if (items.length === 0) return <EmptyCartMessage />;
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <Container>
       <h1 className="text-2xl font-bold mb-8">Shopping Cart</h1>
       <div className="grid gap-8 lg:grid-cols-3">
         <div className="lg:col-span-2 space-y-4">
@@ -29,6 +30,6 @@ export default function CartPage() {
         </div>
         <OrderSummary quantity={quantity} amount={amount} />
       </div>
-    </div>
+    </Container>
   );
 }
