@@ -18,6 +18,7 @@ export function CartItem({ item, onUpdateQuantity, onRemove }: CartItemProps) {
           alt={item.product.title}
           fill
           className="object-contain"
+          priority
         />
       </div>
       <div className="flex-1">

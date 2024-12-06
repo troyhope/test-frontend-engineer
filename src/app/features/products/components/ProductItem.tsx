@@ -19,6 +19,7 @@ export function ProductItem({ product }: ProductItemProps) {
           className="w-full h-48 object-contain"
           width={300}
           height={300}
+          priority
         />
         <h2 className="mt-4 font-semibold truncate">{product.title}</h2>
         <p className="text-lg font-bold mt-2">${product.price}</p>
