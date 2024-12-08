@@ -53,15 +53,30 @@ export function cartReducer(state: CartState, action: CartAction): CartState {
         items: state.items.filter((item) => item.product.id !== action.payload),
       };
 
-    case "UPDATE_QUANTITY":
+    case "UPDATE_QUANTITY": {
+      const { id, quantity } = action.payload;
+
+      // Remove item if quantity is 0 or less
+      if (quantity <= 0) {
+        const newItems = state.items.filter((item) => item.product.id !== id);
+        return {
+          ...state,
+          items: newItems,
+          totals: calculateTotals(newItems),
+        };
+      }
+
+      // Update quantity for item
+      const newItems = state.items.map((item) =>
+        item.product.id === id ? { ...item, quantity } : item
+      );
+
       return {
         ...state,
-        items: state.items.map((item) =>
-          item.product.id === action.payload.id
-            ? { ...item, quantity: action.payload.quantity }
-            : item
-        ),
+        items: newItems,
+        totals: calculateTotals(newItems),
       };
+    }
 
     case "HYDRATE":
       return action.payload;

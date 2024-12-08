@@ -28,7 +28,6 @@ export function CartItem({ item, onUpdateQuantity, onRemove }: CartItemProps) {
           <Button
             variant="secondary"
             onClick={() => onUpdateQuantity(item.product.id, item.quantity - 1)}
-            disabled={item.quantity <= 1}
           >
             -
           </Button>
